@@ -14,3 +14,32 @@ $("div.time-block").each(function(index) {
         $(this).addClass("past");
     }
 });
+var clickedDataTime = ""
+//Listener for the click event
+// $("div.description").one("click",function(){
+//     var clickedDataTime = $(this).parent().attr("data-time"); //Finding parent Time Block
+//     $(document).keypress(function(e) {   //Listening to the keyboard
+//             // Writting to the child class 'description'
+//             $(`div.time-block[data-time='${clickedDataTime}']`).children('.description').append(e.originalEvent.key);
+//   });
+// });
+
+
+
+$("div.description").one("click",function(){
+
+    clickedDataTime = $(this).attr("data-time"); //Finding Time Block
+    console.log(this)
+    console.log(clickedDataTime)
+    console.log(typeof clickedDataTime)
+
+    $(document).keydown(function(e) {   //Listening to the keyboard
+            // Writting to the child class 'description'
+            $(`div.description[data-time='${clickedDataTime}']`).append(e.originalEvent.key);
+            console.log(e)
+
+        
+            console.log(e.originalEvent.key)
+
+  });
+});
